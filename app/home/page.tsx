@@ -19,7 +19,7 @@ const HomePage = () => {
         />
 
         {name ? (
-          <Link href={`/quizs?name=${encodeURIComponent(name)}`}>
+          <Link href={`/home/quizs?name=${encodeURIComponent(name)}`}>
             <Button variant={"outline"} className="text-2xl h-20 mt-5">
               เริ่มทำแบบทดสอบ
             </Button>
