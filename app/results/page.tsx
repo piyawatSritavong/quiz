@@ -3,11 +3,19 @@
 import { Button } from "@/components/ui/button";
 import { usePaperContext } from "@/context/result.context";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const ResultPage = () => {
   const { paperState, answerState, updateSocre } = usePaperContext();
 
-  if (!paperState || !answerState) {
+  const [isClient, setIsClient] = useState(false);
+
+  // ตรวจสอบว่าเป็นการรันบน client-side
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient || !paperState || !answerState) {
     return <div>Loading...</div>;
   }
 
